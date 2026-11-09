@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elite X Cheats - Premium Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--g:#39ff14;--bg:#050505;--c:#111111;--b:#222222;--txt:#f0f0f0;--red:#ff3b3b;--gold:#ffd700;--blue:#00d4ff;--purple:#a855f7}
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Inter',sans-serif}
+body{background:var(--bg);color:var(--txt);min-height:100vh;overflow-x:hidden;background-image:radial-gradient(circle at 15% 50%, rgba(57,255,20,0.05), transparent 25%), radial-gradient(circle at 85% 30%, rgba(0,212,255,0.05), transparent 25%)}
+header{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;background:rgba(10,10,10,0.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--b);position:sticky;top:0;z-index:100}
+.brand{color:var(--g);font-weight:900;letter-spacing:1px;font-size:1.3rem;display:flex;align-items:center;text-shadow:0 0 10px rgba(57,255,20,0.4)}
+.vip{background:linear-gradient(135deg,var(--gold),#ff8c00);color:#000;padding:.15rem .6rem;border-radius:6px;font-size:.7rem;font-weight:900;letter-spacing:1px;margin-left:.6rem}
+button{cursor:pointer;border:1px solid var(--b);background:#151515;color:var(--txt);padding:.6rem 1.2rem;border-radius:8px;font-size:.9rem;font-weight:600;transition:all .2s ease}
+button:hover{background:#222;border-color:var(--g);color:var(--g);transform:translateY(-1px)}
+button.primary{background:var(--g);color:#000;border-color:var(--g);box-shadow:0 0 15px rgba(57,255,20,0.3)}
+button.primary:hover{background:#2ae00f;box-shadow:0 0 25px rgba(57,255,20,0.5);color:#000}
+button.follow{background:linear-gradient(135deg,#ff0058,#ff8c00);color:#fff;border:none}
+button.danger{background:rgba(255,59,59,0.2);color:var(--red);border:1px solid var(--red)}
+button.danger:hover{background:var(--red);color:#fff}
+
+#announcementBar{background:linear-gradient(90deg, var(--purple), var(--blue)); color: #fff; text-align: center; padding: .6rem; font-weight: 600; font-size: .9rem; display: none; box-shadow: 0 4px 15px rgba(0,212,255,0.2);}
+#announcementBar span{margin-right:10px; animation: pulse 2s infinite;}
+@keyframes pulse{0%{opacity:1}50%{opacity:0.5}100%{opacity:1}}
+
+.stats{display:flex;gap:1.5rem;flex-wrap:wrap;padding:1rem 2rem;background:var(--c);border-bottom:1px solid var(--b);align-items:center;justify-content:center}
+.stat{font-size:.8rem;color:#888;display:flex;flex-direction:column;align-items:center}
+.stat b{color:var(--g);font-size:1.4rem;line-height:1.2;text-shadow:0 0 10px rgba(57,255,20,0.3)}
+
+nav{display:flex;gap:.5rem;padding:1rem 2rem;background:transparent;border-bottom:1px solid var(--b);overflow-x:auto;white-space:nowrap;justify-content:center}
+nav::-webkit-scrollbar{display:none}
+nav button{border-radius:20px;padding:.5rem 1.2rem;font-size:.85rem;background:transparent;border:1px solid var(--b);color:#888;font-weight:600}
+nav button.active{background:rgba(57,255,20,0.1);color:var(--g);border-color:var(--g)}
+nav button:hover{border-color:var(--g);color:var(--g)}
+
+main{max-width:1100px;margin:auto;padding:2rem;position:relative}
+.section{display:none;animation:fade .3s ease-in-out}
+.section.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+.card{background:var(--c);border:1px solid var(--b);border-radius:16px;padding:1.5rem;margin-bottom:1rem;transition:all .3s ease;position:relative;overflow:hidden}
+.card:hover{border-color:#333;box-shadow:0 10px 30px rgba(0,0,0,0.5)}
+.card h3{color:var(--txt);margin-bottom:.5rem;font-size:1.1rem;display:flex;justify-content:space-between;align-items:center;word-break:break-all}
+.meta{color:#888;font-size:.85rem;margin-bottom:1rem;display:flex;gap:1rem;flex-wrap:wrap}
+.badge{background:#1a1a1a;padding:.3rem .6rem;border-radius:6px;border:1px solid #333;font-weight:600}
+.row{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+input[type=file], input[type=text], input[type=password], textarea, select{color:#ccc;font-size:.9rem;border:1px solid var(--b);padding:.8rem 1rem;border-radius:10px;width:100%;background:#0a0a0a;outline:none;transition:all .2s}
+input:focus, textarea:focus, select:focus{border-color:var(--g);box-shadow:0 0 10px rgba(57,255,20,0.1);color:#fff}
+.live{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--g);margin-right:.4rem;animation:p 1.5s infinite;box-shadow:0 0 10px var(--g)}
+@keyframes p{50%{opacity:.2}}
+.empty{color:#666;text-align:center;padding:3rem;font-style:italic;border:1px dashed var(--b);border-radius:12px}
+.owner-toggle{font-size:.8rem;color:#555;cursor:pointer;text-decoration:none;background:none;border:none;padding:.5rem}
+.owner-toggle.active{color:var(--gold);font-weight:800}
+.msg{color:var(--g);font-size:.9rem;margin-top:1rem;word-break:break-all; text-align:center;}
+
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-bottom:2rem}
+.price-card{background:var(--c);border:1px solid var(--b);border-radius:16px;padding:2rem;text-align:center;position:relative;transition:.3s}
+.price-card:hover{transform:translateY(-5px);border-color:#444}
+.price-card.featured{border-color:var(--gold);background:linear-gradient(180deg, rgba(255,215,0,0.05) 0%, var(--c) 100%);box-shadow:0 0 30px rgba(255,215,0,0.1)}
+.price-card h4{color:#fff;font-size:1.2rem;margin-bottom:.5rem;font-weight:800}
+.price-card .price{color:var(--g);font-size:2.5rem;font-weight:900;margin-bottom:1.5rem}
+.price-card .price span{font-size:.9rem;color:#666;font-weight:500}
+.price-card ul{list-style:none;text-align:left;margin-bottom:2rem;color:#aaa;font-size:.9rem}
+.price-card ul li{margin-bottom:.8rem;display:flex;align-items:center}
+.price-card ul li::before{content:'✓';color:var(--g);margin-right:.8rem;font-weight:900}
+
+.pay-method{display:flex;justify-content:space-between;align-items:center;background:#0a0a0a;padding:1rem;border-radius:12px;border:1px solid var(--b);margin-bottom:.8rem}
+.pay-method span{font-weight:700;color:var(--blue);font-size:1rem}
+.pay-method small{color:#666;font-size:.85rem}
+
+.ticket-box{background:#0a0a0a;padding:1.2rem;border-radius:12px;border:1px solid var(--b);margin-bottom:1rem;transition:.2s}
+.ticket-box:hover{border-color:#333}
+.ticket-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid #1a1a1a}
+.ticket-msg{margin-bottom:.8rem; padding:.8rem 1rem; border-radius:12px; max-width:85%; font-size:.9rem; line-height:1.4; position:relative; word-wrap:break-word}
+.ticket-msg.user{background:#1a1a1a; color:#ccc; align-self:flex-start; border-bottom-left-radius:2px; border:1px solid #222}
+.ticket-msg.owner{background:rgba(57,255,20,0.1); color:var(--g); border:1px solid rgba(57,255,20,0.2); align-self:flex-end; margin-left:auto; border-bottom-right-radius:2px}
+.ticket-reply{display:flex; gap:.5rem; margin-top:1.5rem}
+.chat-container{display:flex;flex-direction:column;height:400px;overflow-y:auto;padding-right:.5rem;scrollbar-width:thin}
+
+.profile-header{display:flex;align-items:center;gap:1rem;background:var(--c);padding:1.5rem;border-radius:16px;border:1px solid var(--b);margin-bottom:2rem}
+.avatar{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--blue));display:flex;justify-content:center;align-items:center;font-size:1.5rem;font-weight:900;color:#fff}
+.profile-info h2{font-size:1.3rem;color:#fff;margin-bottom:.2rem}
+.profile-info p{font-size:.85rem;color:#888}
+.login-box{background:var(--c);padding:2rem;border-radius:16px;border:1px solid var(--b);max-width:400px;margin: auto;text-align:center;}
+.login-box h2{color:#fff;margin-bottom:1.5rem;}
+
+.vip-dash{background:linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,140,0,0.05)); border:1px solid var(--gold); border-radius:16px; padding:1.5rem; margin-bottom:2rem;}
+.vip-dash h3{color:var(--gold); margin-bottom:1rem;}
+.vip-status{display:flex; align-items:center; gap:1rem; background:rgba(0,0,0,0.5); padding:1rem; border-radius:12px;}
+.vip-status .icon{font-size:2rem;}
+
+.admin-grid{display:grid; grid-template-columns: 1fr 1fr; gap:1rem;}
+@media(max-width: 768px){ .admin-grid{grid-template-columns: 1fr;} }
+
+.hero { text-align: center; padding: 5rem 1rem; background: radial-gradient(circle at center, rgba(57,255,20,0.08) 0%, transparent 60%); border-radius: 24px; border: 1px solid var(--b); margin-bottom: 3rem; position: relative; overflow: hidden; }
+.hero::before { content:''; position:absolute; top:0; left:0; right:0; bottom:0; background: url('data:image/svg+xml;utf8,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>'); z-index:0; pointer-events:none; }
+.hero > * { position:relative; z-index:1; }
+.hero h1 { font-size: 3rem; margin-bottom: 1rem; background: linear-gradient(135deg, #fff 0%, #aaa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight:900; letter-spacing:-1px;}
+.hero p { color: #999; font-size: 1.1rem; max-width: 600px; margin: 0 auto 2.5rem auto; line-height: 1.6; }
+.hero-tags { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+.hero-tag { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #ccc; padding: 0.5rem 1.2rem; border-radius: 30px; font-size: 0.85rem; font-weight: 600; backdrop-filter: blur(5px); }
+
+@media(max-width: 600px) {
+  .hero h1 { font-size: 2rem; }
+  .profile-header { flex-direction: column; text-align: center; }
+  .ticket-msg { max-width: 95%; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">Elite X Cheats<span class="vip">VIP</span></div>
+  <div class="row">
+    <button class="follow" onclick="follow()" id="followBtn">★ Follow</button>
+    <button onclick="openOwnerLogin()" id="ownerBtn" class="owner-toggle">Owner Login</button>
+  </div>
+</header>
+
+<!-- OWNER LOGIN MODAL -->
+<div id="ownerModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center; backdrop-filter:blur(5px);">
+  <div class="login-box" style="border-color:var(--gold); max-width:350px;">
+    <h2 style="color:var(--gold);">👑 Owner Login</h2>
+    <input type="text" id="ownerUser" placeholder="Username" style="margin-bottom:1rem;">
+    <input type="password" id="ownerPass" placeholder="Password" style="margin-bottom:1.5rem;">
+    <div class="row" style="justify-content:center;">
+      <button class="primary" onclick="doOwnerLogin()" style="flex:1;">Login</button>
+      <button class="danger" onclick="closeOwnerLogin()" style="flex:1;">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<div id="announcementBar">
+  <span>📢</span> <span id="announcementText">Welcome to Elite X Cheats!</span>
+</div>
+
+<div class="stats">
+  <div class="stat"><span class="live"></span>Total Files<b id="s-files">0</b></div>
+  <div class="stat">Downloads<b id="s-dl">0</b></div>
+  <div class="stat" id="stat-total-likes" style="display:none;">Total Likes<b id="s-like">0</b></div>
+  <div class="stat">Shares<b id="s-share">0</b></div>
+  <div class="stat">Total Followers<b id="s-fol">0</b></div>
+</div>
+
+<nav id="navTabs">
+  <button class="active" onclick="switchTab('home', event)">🏠 Home</button>
+  <button onclick="switchTab('free', event)">🔥 Free Panel</button>
+  <button onclick="switchTab('yt', event)">▶️ YT Resources</button>
+  <button onclick="switchTab('bypass', event)">⚡ Free Bypass</button>
+  <button onclick="switchTab('paid', event)">💎 Paid Panel</button>
+  <button onclick="switchTab('payment', event)">💳 Pricing</button>
+  <button onclick="switchTab('support', event)">🎧 Support</button>
+  <button id="adminTabBtn" onclick="switchTab('admin', event)" style="display:none; color:var(--gold); border-color:var(--gold);">👑 Admin Panel</button>
+</nav>
+
+<main>
+  <div id="sec-home" class="section active">
+    <div class="hero">
+      <h1>Welcome to Elite X Cheats</h1>
+      <p>Your #1 destination for premium tools, free panels, and exclusive resources. Level up your game with the best cheats available.</p>
+      <div class="hero-tags">
+        <span class="hero-tag">🔥 Free Panel</span>
+        <span class="hero-tag">▶️ YT Resources</span>
+        <span class="hero-tag">⚡ Free Bypass</span>
+        <span class="hero-tag">💎 Premium Access</span>
+      </div>
+    </div>
+    <h3 style="margin-bottom:1rem;color:var(--g);">Latest Updates</h3>
+    <div id="list-home"></div>
+  </div>
+
+  <div id="sec-free" class="section"><h3 style="margin-bottom:1rem;color:var(--g);">🔥 Free Panel</h3><div id="list-free"></div></div>
+  <div id="sec-yt" class="section"><h3 style="margin-bottom:1rem;color:var(--g);">▶️ YT Resources</h3><div id="list-yt"></div></div>
+  <div id="sec-bypass" class="section"><h3 style="margin-bottom:1rem;color:var(--g);">⚡ Free Bypass</h3><div id="list-bypass"></div></div>
+  <div id="sec-paid" class="section"><h3 style="margin-bottom:1rem;color:var(--gold);">💎 Paid Panel (Premium)</h3><div id="list-paid"></div></div>
+
+  <div id="sec-payment" class="section">
+    <h3 style="margin-bottom:1.5rem;color:var(--blue);">💎 Premium Plans</h3>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h4>Starter</h4>
+        <div class="price">$5 <span>/mo</span></div>
+        <ul><li>Access to Free Panel</li><li>Standard Support</li><li>No Ads</li></ul>
+        <button class="primary" onclick="requestPlan('Starter - $5')" style="width:100%">Choose Plan</button>
+      </div>
+      <div class="price-card featured">
+        <div style="position:absolute;top:15px;right:-35px;background:var(--gold);color:#000;padding:.2rem 2.5rem;transform:rotate(45deg);font-size:.75rem;font-weight:900;letter-spacing:1px;">BEST</div>
+        <h4>Pro VIP</h4>
+        <div class="price">$15 <span>/mo</span></div>
+        <ul><li>Access to All Panels</li><li>Priority Support</li><li>Free Bypass Tools</li><li>Weekly Updates</li></ul>
+        <button class="primary" onclick="requestPlan('Pro VIP - $15')" style="width:100%">Choose Plan</button>
+      </div>
+      <div class="price-card">
+        <h4>Lifetime</h4>
+        <div class="price">$50 <span>/once</span></div>
+        <ul><li>Everything in Pro</li><li>Lifetime Access</li><li>Direct Owner Contact</li></ul>
+        <button class="primary" onclick="requestPlan('Lifetime - $50')" style="width:100%">Choose Plan</button>
+      </div>
+    </div>
+    <h3 style="margin-bottom:1rem;color:var(--blue);">💳 Payment Methods</h3>
+    <div class="card" style="border-color:var(--blue);"><p style="color:#888; margin-bottom:1.5rem; font-size:.9rem;">Pay using any method below, then send screenshot in Support.</p><div id="list-payments"></div></div>
+  </div>
+
+  <div id="sec-support" class="section">
+    <div id="loginBox" class="login-box" style="display:none;">
+      <h2>User Login</h2>
+      <p style="color:#888; margin-bottom:1.5rem; font-size:.9rem;">Enter your credentials to access VIP Dashboard & Chat.</p>
+      <input type="text" id="loginUser" placeholder="Username" style="margin-bottom:1rem;">
+      <input type="password" id="loginPass" placeholder="Password" style="margin-bottom:1.5rem;">
+      <button class="primary" onclick="userLogin()" style="width:100%;">Login</button>
+    </div>
+
+    <div id="userArea" style="display:none;">
+      <div class="profile-header">
+        <div class="avatar" id="userAvatar">U</div>
+        <div class="profile-info">
+          <h2 id="userDisplayName">User</h2>
+          <p id="userDisplayId">ID: ...</p>
+        </div>
+        <button onclick="userLogout()" style="margin-left:auto; font-size:.8rem;" class="danger">Logout</button>
+      </div>
+
+      <div class="vip-dash">
+        <h3>⭐ VIP Dashboard</h3>
+        <div class="vip-status">
+          <div class="icon">🛡️</div>
+          <div>
+            <strong style="color:#fff; display:block;">Account Status: Active</strong>
+            <small style="color:#aaa;">Plan: Free Tier (Upgrade in Pricing tab)</small>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin-bottom:1rem;color:var(--purple);">🎧 Support / Live Chat</h3>
+      <div id="userChatBox" class="card" style="border-color:var(--purple); background:#0a0a0a;">
+        <p style="color:#888; margin-bottom:1rem; font-size:.9rem;">Send a message directly to the Owner. Reply will appear here.</p>
+        <div id="my-chat-history" class="chat-container"></div>
+        <div style="display:flex; gap:.5rem; margin-top:1rem;">
+          <input type="text" id="chatInput" placeholder="Type your message here..." style="flex:1;" onkeypress="if(event.key==='Enter') sendChatMsg()">
+          <button class="primary" onclick="sendChatMsg()">Send</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="ownerChatInbox" style="display:none;">
+      <div class="card" style="border-color:var(--gold); background:#0a0a0a;">
+        <h3 style="color:var(--gold);">Owner Chat Inbox</h3>
+        <div id="owner-chat-list" style="margin-top:1.5rem;"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="sec-admin" class="section">
+    <h3 style="margin-bottom:1.5rem;color:var(--gold);">👑 Owner Control Center</h3>
+    
+    <div class="admin-grid">
+      <div class="card" style="border-color:var(--gold);">
+        <h3 style="color:var(--gold);">📢 Update Announcement</h3>
+        <p style="color:#888; font-size:.85rem; margin-bottom:1rem;">Set text or image URL for the top banner.</p>
+        <input type="text" id="announcementInput" placeholder="Write announcement text..." style="margin-bottom:.8rem;">
+        <button class="primary" onclick="updateAnnouncement()" style="width:100%;">Update Banner</button>
+      </div>
+
+      <div class="card" style="border-color:var(--gold);">
+        <h3 style="color:var(--gold);">📤 Upload File</h3>
+        <p style="color:#888; font-size:.85rem; margin-bottom:1rem;">Select a file and assign it to a section.</p>
+        <input type="file" id="file" style="margin-bottom:.8rem;">
+        <select id="uploadSection" style="margin-bottom:.8rem;">
+          <option value="home">Home Section</option>
+          <option value="free">Free Panel</option>
+          <option value="yt">YT Resources</option>
+          <option value="bypass">Free Bypass</option>
+          <option value="paid">Paid Panel</option>
+        </select>
+        <button class="primary" onclick="upload()" style="width:100%;">Upload File</button>
+        <div class="msg" id="msg"></div>
+      </div>
+    </div>
+
+    <!-- NEW: CHANGE OWNER CREDENTIALS -->
+    <div class="card" style="border-color:var(--red);">
+      <h3 style="color:var(--red);">🔐 Change Owner Credentials</h3>
+      <p style="color:#888; font-size:.85rem; margin-bottom:1rem;">Update your login username and password.</p>
+      <div class="row">
+        <input type="text" id="newOwnerUser" placeholder="New Username" style="flex:1;">
+        <input type="text" id="newOwnerPass" placeholder="New Password" style="flex:1;">
+        <button class="danger" onclick="changeOwnerCreds()">Update</button>
+      </div>
+    </div>
+
+    <div class="admin-grid">
+      <div class="card" style="border-color:var(--gold);">
+        <h3 style="color:var(--gold);">👥 Manage Users</h3>
+        <div class="row" style="margin-top:1rem;">
+          <input type="text" id="newUserName" placeholder="New Username" style="flex:1;">
+          <input type="text" id="newUserPass" placeholder="Password" style="flex:1;">
+          <button class="primary" onclick="addUser()">Add</button>
+        </div>
+        <div id="user-list" style="margin-top:1.5rem; max-height:250px; overflow-y:auto;"></div>
+      </div>
+
+      <div class="card" style="border-color:var(--gold);">
+        <h3 style="color:var(--gold);">💳 Manage Payments</h3>
+        <div class="row" style="margin-top:1rem;">
+          <input type="text" id="newPayName" placeholder="Method (e.g. JazzCash)" style="flex:1;">
+          <input type="text" id="newPayInfo" placeholder="Account Details" style="flex:2;">
+          <button class="primary" onclick="addPayment()">Add</button>
+        </div>
+        <div id="admin-payment-list" style="margin-top:1.5rem; max-height:250px; overflow-y:auto;"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+const KEY='elite_x_chat_v7';
+const SESSION_KEY='elite_x_session';
+
+const defaultState = {
+  files: [], followers: 0, likes: {}, shares: {}, owner: false, followed: false,
+  announcement: "Welcome to Elite X Cheats! Buy VIP for premium access.",
+  ownerCreds: { user: "owner", pass: "vip123" }, // Default Owner Credentials
+  users: { "ali": "1" },
+  payments: [
+    { id: 'p1', name: 'JazzCash', info: '0300-1234567 (Ali)' },
+    { id: 'p2', name: 'Easypaisa', info: '0345-7654321 (Ali)' }
+  ],
+  chats: {} 
+};
+
+const load=()=>{
+  let d=JSON.parse(localStorage.getItem(KEY)||'null');
+  if(!d) d=JSON.parse(JSON.stringify(defaultState));
+  d.files=d.files||[]; d.payments=d.payments||[]; d.chats=d.chats||{}; d.users=d.users||{ali:"1"};
+  d.likes=d.likes||{}; d.shares=d.shares||{}; d.followers=d.followers||0;
+  d.ownerCreds = d.ownerCreds || { user: "owner", pass: "vip123" };
+  return d;
+};
+const save=d=>localStorage.setItem(KEY,JSON.stringify(d));
+
+let currentUser = localStorage.getItem(SESSION_KEY) || null;
+
+// --- OWNER LOGIN MODAL LOGIC ---
+function openOwnerLogin(){
+  const d = load();
+  if(d.owner) {
+    // If already logged in, clicking logs out
+    if(confirm('Logout from Owner Mode?')) {
+      d.owner = false; save(d); render(); switchTab('home', null);
+    }
+    return;
+  }
+  document.getElementById('ownerModal').style.display = 'flex';
+  document.getElementById('ownerUser').value = '';
+  document.getElementById('ownerPass').value = '';
+}
+
+function closeOwnerLogin(){
+  document.getElementById('ownerModal').style.display = 'none';
+}
+
+function doOwnerLogin(){
+  const u = document.getElementById('ownerUser').value.trim();
+  const p = document.getElementById('ownerPass').value.trim();
+  const d = load();
+  
+  if(u === d.ownerCreds.user && p === d.ownerCreds.pass) {
+    d.owner = true; save(d); closeOwnerLogin(); render(); switchTab('admin', null);
+  } else {
+    alert('Wrong Owner Credentials.');
+  }
+}
+
+function changeOwnerCreds(){
+  const newUser = document.getElementById('newOwnerUser').value.trim();
+  const newPass = document.getElementById('newOwnerPass').value.trim();
+  if(!newUser || !newPass) return alert('Fill both fields to update credentials.');
+  
+  const d = load();
+  d.ownerCreds = { user: newUser, pass: newPass };
+  save(d); render();
+  document.getElementById('newOwnerUser').value = '';
+  document.getElementById('newOwnerPass').value = '';
+  alert('Owner Credentials Updated Successfully! Use these next time.');
+}
+
+// --- USER LOGIN ---
+function userLogin(){
+  const u = document.getElementById('loginUser').value.trim();
+  const p = document.getElementById('loginPass').value.trim();
+  const d = load();
+  const safeU = esc(u);
+  if(d.users[safeU] && d.users[safeU] === p) {
+    currentUser = safeU; localStorage.setItem(SESSION_KEY, safeU); render();
+  } else { alert('Invalid credentials.'); }
+}
+
+function userLogout(){
+  currentUser = null; localStorage.removeItem(SESSION_KEY); render();
+}
+
+// --- GENERAL FUNCTIONS ---
+function esc(s){
+  if(typeof s !== 'string') return s;
+  return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function updateAnnouncement(){
+  const txt = document.getElementById('announcementInput').value.trim();
+  if(!txt) return alert('Type something boss man');
+  const d = load(); d.announcement = esc(txt); save(d); render();
+  document.getElementById('announcementInput').value = '';
+  alert('Announcement updated!');
+}
+
+function addUser(){
+  const u = esc(document.getElementById('newUserName').value.trim());
+  const p = document.getElementById('newUserPass').value.trim();
+  if(!u || !p) return alert('Fill both username and password');
+  const d = load();
+  if(d.users[u]) return alert('User already exists!');
+  d.users[u] = p; save(d); render();
+  document.getElementById('newUserName').value = '';
+  document.getElementById('newUserPass').value = '';
+}
+
+function deleteUser(u){
+  if(!confirm('Delete this user?')) return;
+  const d = load(); delete d.users[u]; delete d.chats[u]; save(d); render();
+}
+
+function addPayment(){
+  const name = esc(document.getElementById('newPayName').value); 
+  const info = esc(document.getElementById('newPayInfo').value);
+  if(!name || !info) return alert('Fill both fields');
+  const d=load(); d.payments.push({id: uid(), name, info}); save(d); render();
+  document.getElementById('newPayName').value = ''; document.getElementById('newPayInfo').value = '';
+}
+
+function deletePayment(id){
+  if(!confirm('Delete this payment method?'))return;
+  const d=load(); d.payments = d.payments.filter(x=>x.id!==id); save(d); render();
+}
+
+function switchTab(id, e){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+  const sec = document.getElementById('sec-'+id);
+  if(sec) sec.classList.add('active');
+  if(e) e.currentTarget.classList.add('active');
+  else {
+    const btns = document.querySelectorAll('nav button');
+    btns.forEach(b => { if(b.getAttribute('onclick').includes(id)) b.classList.add('active'); });
+  }
+  render();
+}
+
+function uid(){return Math.random().toString(36).slice(2,10)}
+
+async function upload(){
+  const f=document.getElementById('file').files[0];
+  if(!f)return alert('Pick a file first');
+  const sec = document.getElementById('uploadSection').value;
+  const d=load(); const id=uid();
+  const reader=new FileReader();
+  reader.onload=()=>{
+    d.files.unshift({id, name:esc(f.name), size:f.size, data:reader.result, downloads:0, section: sec});
+    save(d); document.getElementById('msg').textContent='Uploaded!'; render();
+  };
+  reader.readAsDataURL(f);
+}
+
+function deleteFile(id){
+  if(!confirm('Delete this file permanently?'))return;
+  const d=load(); d.files=d.files.filter(x=>x.id!==id); delete d.likes[id]; delete d.shares[id]; save(d); render();
+}
+function downloadFile(id){
+  const d=load(); const f=d.files.find(x=>x.id===id);
+  if(!f)return; f.downloads++; save(d);
+  const a=document.createElement('a'); a.href=f.data; a.download=f.name; a.click(); render();
+}
+function like(id){
+  const d=load();
+  if(!d.likes[id] || typeof d.likes[id] === 'number'){ d.likes[id] = { count: typeof d.likes[id] === 'number' ? d.likes[id] : 0, users: [] }; }
+  const L = d.likes[id];
+  const uidToUse = currentUser || 'guest';
+  if(L.users.includes(uidToUse)){ return alert('You already liked this.'); }
+  L.users.push(uidToUse); L.count++; save(d); render();
+}
+
+function follow(){
+  const d = load();
+  if(d.followed) { return alert('You already followed, boss man.'); }
+  d.followed = true; d.followers = (d.followers || 0) + 1;
+  save(d); alert('Followed! Total Followers: ' + d.followers); render();
+}
+
+function share(id){
+  const url=location.origin+location.pathname+'?dl='+id;
+  if(navigator.share){navigator.share({url}).catch(()=>{});}
+  else{navigator.clipboard.writeText(url);alert('Link copied: '+url);}
+  const d=load(); d.shares[id]=(d.shares[id]||0)+1; save(d); render();
+}
+function requestPlan(planName){
+  switchTab('support', null);
+  if(currentUser) {
+    document.getElementById('chatInput').value = "I want to buy: " + planName;
+  } else {
+    alert('Please login first to request a plan.');
+  }
+}
+
+function sendChatMsg(userId = null, replyText = null) {
+  const d = load();
+  if(!currentUser && !d.owner) return alert('Login required.');
+  const uId = userId || currentUser;
+  
+  let text = replyText;
+  if(!text) {
+    text = document.getElementById('chatInput').value.trim();
+    if(!text) return;
+  }
+  
+  if(!d.chats[uId]) d.chats[uId] = [];
+  d.chats[uId].push({ sender: d.owner ? 'owner' : 'user', text: esc(text), time: Date.now() });
+  save(d);
+  if(!replyText) document.getElementById('chatInput').value = '';
+  render();
+}
+
+function clearChat(userId){
+  if(!confirm('Clear this chat?'))return;
+  const d=load(); delete d.chats[userId]; save(d); render();
+}
+
+function render(){
+  const d=load();
+  
+  const bar = document.getElementById('announcementBar');
+  if(d.announcement) {
+    bar.style.display = 'block';
+    document.getElementById('announcementText').innerHTML = d.announcement;
+  } else { bar.style.display = 'none'; }
+
+  document.getElementById('adminTabBtn').style.display = d.owner ? 'block' : 'none';
+  document.getElementById('stat-total-likes').style.display = d.owner ? 'flex' : 'none';
+  document.getElementById('ownerBtn').textContent = d.owner ? '★ Owner Mode ON' : 'Owner Login';
+  document.getElementById('ownerBtn').className = d.owner ? 'owner-toggle active' : 'owner-toggle';
+  
+  const fb = document.getElementById('followBtn');
+  if(d.followed) { fb.textContent='★ Following'; fb.disabled = true; } 
+  else { fb.textContent='★ Follow'; fb.disabled = false; }
+
+  const totalDL = d.files.reduce((a,f)=>a+f.downloads,0);
+  let totalLikes=0; Object.values(d.likes).forEach(val=>{ totalLikes += (typeof val === 'number') ? val : (val.count || 0); });
+  const totalSH=Object.values(d.shares).reduce((a,b)=>a+b,0);
+  document.getElementById('s-files').textContent=d.files.length;
+  document.getElementById('s-dl').textContent=totalDL;
+  document.getElementById('s-like').textContent=totalLikes;
+  document.getElementById('s-share').textContent=totalSH;
+  document.getElementById('s-fol').textContent=d.followers;
+
+  ['home','free','yt','bypass','paid'].forEach(sec => {
+    const container = document.getElementById('list-'+sec);
+    if(!container) return;
+    const secFiles = d.files.filter(f => (f.section || 'home') === sec);
+    if(!secFiles.length){ container.innerHTML='<div class="empty">No files in this section yet.</div>'; return; }
+    container.innerHTML=secFiles.map(f=>{
+      let fileLikes = 0; let isLiked = false;
+      if(d.likes[f.id]){ if(typeof d.likes[f.id] === 'number'){ fileLikes = d.likes[f.id]; } else { fileLikes = d.likes[f.id].count; isLiked = d.likes[f.id].users.includes(currentUser || 'guest'); } }
+      return `<div class="card">
+        <h3><span>${esc(f.name)}</span>${d.owner ? `<button class="danger" onclick="deleteFile('${f.id}')" style="padding:.3rem .6rem;font-size:.8rem;">Delete</button>` : ''}</h3>
+        <div class="meta"><span class="badge">${(f.size/1024).toFixed(1)} KB</span><span class="badge">${f.downloads} downloads</span><span class="badge" style="color:var(--g);border-color:var(--g);">${fileLikes} likes</span></div>
+        <div class="row"><button class="primary" onclick="downloadFile('${f.id}')" style="flex:1;">Download</button><button onclick="like('${f.id}')" ${isLiked ? 'disabled' : ''} style="flex:1;">${isLiked ? '♥ Liked' : '♥ Like'}</button><button onclick="share('${f.id}')" style="flex:1;">Share</button></div>
+      </div>`;
+    }).join('');
+  });
+
+  const payContainer = document.getElementById('list-payments');
+  if(payContainer) {
+    payContainer.innerHTML = d.payments.map(p => `<div class="pay-method"><div><span>${esc(p.name)}</span><br><small>${esc(p.info)}</small></div></div>`).join('');
+  }
+
+  const adminPayContainer = document.getElementById('admin-payment-list');
+  if(adminPayContainer) {
+    adminPayContainer.innerHTML = d.payments.map(p => `
+      <div class="pay-method" style="margin-bottom:.5rem;">
+        <div><span>${esc(p.name)}</span><br><small>${esc(p.info)}</small></div>
+        <button class="danger" onclick="deletePayment('${p.id}')" style="padding:.2rem .5rem;font-size:.75rem;">X</button>
+      </div>`).join('');
+  }
+
+  const uList = document.getElementById('user-list');
+  if(uList) {
+    uList.innerHTML = Object.keys(d.users).map(u => `
+      <div style="display:flex; justify-content:space-between; align-items:center; background:#111; padding:.6rem 1rem; border-radius:8px; margin-bottom:.5rem; border:1px solid #222;">
+        <div><strong style="color:#fff;">${esc(u)}</strong> <small style="color:#666; margin-left:.5rem;">Pass: ${esc(d.users[u])}</small></div>
+        <button class="danger" onclick="deleteUser('${u}')" style="padding:.2rem .5rem; font-size:.75rem;">Delete</button>
+      </div>`).join('');
+  }
+
+  const loginBox = document.getElementById('loginBox');
+  const userArea = document.getElementById('userArea');
+  const ownerInbox = document.getElementById('ownerChatInbox');
+
+  if(d.owner) {
+    loginBox.style.display = 'none'; userArea.style.display = 'none'; ownerInbox.style.display = 'block';
+    const chatList = document.getElementById('owner-chat-list');
+    const userIds = Object.keys(d.chats);
+    if(!userIds.length) { chatList.innerHTML = '<div class="empty">No messages yet.</div>'; } 
+    else {
+      chatList.innerHTML = userIds.map(uid => {
+        const msgs = d.chats[uid];
+        return `
+          <div class="ticket-box">
+            <div class="ticket-header">
+              <div style="display:flex; align-items:center; gap:.8rem;">
+                <div class="avatar" style="width:35px;height:35px;font-size:1rem;">${esc(uid.charAt(0).toUpperCase())}</div>
+                <div><strong style="color:#fff; font-size:.95rem;">${esc(uid)}</strong></div>
+              </div>
+              <button class="danger" onclick="clearChat('${uid}')" style="padding:.2rem .5rem; font-size:.7rem;">Clear</button>
+            </div>
+            <div style="max-height:200px; overflow-y:auto; display:flex; flex-direction:column; padding-right:.5rem;">
+              ${msgs.map(m => `<div class="ticket-msg ${m.sender}">${esc(m.text)}<br><small style="color:#888; font-size:.65rem;">${new Date(m.time).toLocaleTimeString()}</small></div>`).join('')}
+            </div>
+            <div class="ticket-reply">
+              <input type="text" id="reply_${uid}" placeholder="Reply..." style="flex:1;" onkeypress="if(event.key==='Enter') sendChatMsg('${uid}', this.value)">
+              <button class="primary" onclick="sendChatMsg('${uid}', document.getElementById('reply_${uid}').value)">Reply</button>
+            </div>
+          </div>`;
+      }).join('');
+    }
+  } else {
+    ownerInbox.style.display = 'none';
+    if(currentUser) {
+      loginBox.style.display = 'none'; userArea.style.display = 'block';
+      document.getElementById('userDisplayName').textContent = currentUser;
+      document.getElementById('userDisplayId').textContent = 'Account Active';
+      document.getElementById('userAvatar').textContent = currentUser.charAt(0).toUpperCase();
+      const myMsgs = d.chats[currentUser] || [];
+      const history = document.getElementById('my-chat-history');
+      if(!myMsgs.length) { history.innerHTML = '<div style="color:#666; font-size:.9rem; text-align:center; margin:auto;">No messages yet. Send one below!</div>'; } 
+      else {
+        history.innerHTML = myMsgs.map(m => `<div class="ticket-msg ${m.sender}">${esc(m.text)}<br><small style="color:#888; font-size:.65rem;">${new Date(m.time).toLocaleTimeString()}</small></div>`).join('');
+        setTimeout(()=>{ history.scrollTop = history.scrollHeight; }, 50);
+      }
+    } else {
+      loginBox.style.display = 'block'; userArea.style.display = 'none';
+    }
+  }
+}
+
+window.addEventListener('load',()=>{
+  render();
+  const p=new URLSearchParams(location.search);
+  const id=p.get('dl');
+  if(id){setTimeout(()=>downloadFile(id),300);}
+});
+</script>
+</body>
+</html>
